@@ -10,20 +10,14 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use App\Http\Requests\Auth\RegisterRequest;
 
 class RegisterController extends Controller
 {
     
-    public function store(Request $request): Response
+    public function store(RegisterRequest $request): Response
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'gender' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
+      
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
