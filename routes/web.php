@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
+
 
 
 Route::get('/', function () {
@@ -9,6 +9,3 @@ Route::get('/', function () {
 });
 
 
-Route::post('/register', [RegisterController::class, 'store'])
-    ->middleware('guest')
-    ->name('register');

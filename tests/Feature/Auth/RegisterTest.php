@@ -11,7 +11,7 @@ class RegisterTest extends TestCase
 
     public function test_new_users_can_register(): void
     {
-        $response = $this->post('/register', [
+        $response = $this->post('/api/register', [
             'name' => 'Test User',
             'email' => 'test@example.com',
             'gender' => 'awdawdadw',
@@ -25,7 +25,7 @@ class RegisterTest extends TestCase
 
     public function test_new_users_register_invalid_data(): void
     {
-        $response = $this->post('/register', [
+        $response = $this->post('/api/register', [
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => 'password',
